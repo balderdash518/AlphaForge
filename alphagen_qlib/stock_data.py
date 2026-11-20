@@ -1,3 +1,4 @@
+import os
 from typing import List, Union, Optional, Tuple, Dict
 from enum import IntEnum
 import numpy as np
@@ -71,6 +72,8 @@ class StockData:
             return
         import qlib
         from qlib.config import REG_CN
+        # the shared AlphaData export when $ALPHAFORGE_QLIB_PATH or $QLIB_PATH_CN is set
+        qlib_path = os.environ.get("ALPHAFORGE_QLIB_PATH") or os.environ.get("QLIB_PATH_CN") or qlib_path
         qlib.init(provider_uri=qlib_path, region=REG_CN)
         cls._qlib_initialized = True
 
