@@ -1,11 +1,32 @@
-baostock==00.8.90
-gym==0.21.0
-matplotlib==3.7.1
-numpy==1.24.3
-pandas==1.5.3
-qlib==0.9.0
-sb3_contrib==1.8.0
-stable_baselines3==1.8.0
-torch==1.13.0
-shimmy==1.1.0
+# Tested on Windows 11, Python 3.11, RTX 5070 Ti (CUDA 12.8).
+# The original pins (torch 1.13 / numpy 1.24 / pandas 1.5 / gym 0.21) cannot be
+# installed on Python >= 3.11 and torch 1.13 has no kernels for Blackwell GPUs.
+#
+# Install (two steps, torch comes from the PyTorch index):
+#   uv venv --python 3.11 .venv
+#   uv pip install --python .venv torch==2.7.1 --index-url https://download.pytorch.org/whl/cu128
+#   uv pip install --python .venv -r requirements.txt
+
+torch==2.7.1
+pyqlib==0.9.7
+numpy>=2.0,<2.3
+pandas>=2.2,<3
+scipy
+scikit-learn
 fire
+tqdm
+loguru
+baostock
+matplotlib
+seaborn
+tensorboard
+
+# alphagen.rl.env imports gym, which train_AFF.py also pulls in
+gym==0.26.2
+
+# ML baselines (exp_ML_train_and_result.ipynb)
+lightgbm
+xgboost
+
+# notebooks
+ipykernel

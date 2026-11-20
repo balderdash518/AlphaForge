@@ -1,6 +1,15 @@
 # AlphaForge(AFF)
 
 
+### Environment
+Python 3.11 with [uv](https://github.com/astral-sh/uv) (see `requirements.txt` for the tested versions):
+```shell
+uv venv --python 3.11 .venv
+uv pip install --python .venv torch==2.7.1 --index-url https://download.pytorch.org/whl/cu128
+uv pip install --python .venv -r requirements.txt
+```
+Then run the scripts with `.venv\Scripts\python.exe` (or activate `.venv` first).
+
 ### Data Preparation
 Similar to [AlphaGen](https://github.com/RL-MLDM/alphagen), We Use [Qlib](https://github.com/microsoft/qlib#data-preparation) as data save tool and download data from free & open-source data source  [baostock](http://baostock.com/baostock/index.php/%E9%A6%96%E9%A1%B5).
 
